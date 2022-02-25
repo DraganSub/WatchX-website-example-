@@ -1,0 +1,146 @@
+@import "../../Common/variables.scss";
+
+.about-us-page{
+  background-color: $background-base-color;
+  .products-hero{
+    .product-grid-hero-bg{
+      background: url("../../Common/img/about-us-hero-bg.jpg");
+      background-position: center;
+      background-size: cover;
+    }
+    .products-title{
+      font-family: $font-family-playfair;
+      @media(max-width:$mobile){
+        display: none;  
+      }    
+    }
+  }
+  .about-us-container{
+    background: url("../../Common/img/about-us-container.jpg");
+    color: $text-color;
+    background-position: center;
+    min-height: 60vh;
+    @media (max-width:$mobile) {
+      display: grid;
+      grid-template-rows: auto 50%;
+      grid-template-areas: 
+      'a'
+      'b';
+      background: unset;
+    }
+      .card-about-us:nth-child(1){
+        background: url("../../Common/img/about-us-container.jpg");
+        background-position: center;
+        background-size: cover;
+        @media (max-width:$mobile) {
+          grid-area: b;    
+        }
+      }
+      .card-about-us:nth-child(2){
+        max-width: 50%;
+        padding: 1em;
+        position: relative;
+        @media (max-width:$mobile) {            
+          grid-area:a;
+          max-width: 100%;
+          background-color:$background-base-color;    
+        }
+          .left-container{
+            max-width: 70%;
+            margin: 25% 0;
+            @media (max-width:$mobile) {            
+              max-width: 90%;
+              margin:  auto;
+              color: $text-color;  
+            }
+            h1{
+              padding: 1em;
+              font-family: $font-family-playfair;
+            }
+            
+            p{
+              max-width: 100%;
+              margin: 2% 5%
+            }
+          }     
+      }
+  }
+
+
+  .quality-container{
+    background-color: $background-base-color;
+    .margin-div{
+      max-width: 80%;
+      margin: 70px auto;
+      .quality-wrap{
+        text-align: center;
+        display: grid;
+        grid-template-columns: repeat(2,50%);
+        @media (max-width:$mobile){
+          grid-template-columns: 100%;
+          min-height:$screen-view;
+        }
+        .card{
+          padding: 1.4em;
+          color: $text-color;
+          h1{
+            padding: 0.5em;
+            font-family: $font-family-playfair;
+          }
+          span{
+            font-size: 0.8em;
+          }
+        }
+      }
+    }
+  }
+
+  .watch-separation{
+    min-height: 50vh;
+    background: url("../../Common/img/about-us-separation.jpg");
+    background-size: cover;
+    background-position: center;
+    @media(max-width: $mobile){
+      min-height: 40vh;
+    }
+  }
+
+  .images-grid{
+    min-height: 40vh;
+    @media(max-width:$mobile){
+      min-height: 25vh;
+    }    
+    .container{
+      position: relative;
+      min-height: 100%;
+      max-width: 80%;
+      margin: 50px auto;
+      .wrap{
+        display: grid;
+        grid-template-columns: repeat(2,45%);
+        height: 35vh;
+        grid-column-gap: 20px;
+        justify-content: center;
+        margin: auto auto;
+        @media(max-width:$mobile){
+          height: 20vh;
+        }
+        .card{
+          height: 100%;
+
+          &:nth-child(1){
+            background: url("https://images.unsplash.com/photo-1521127376958-80338b32f37b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80");
+            background-position: center;
+            background-size: cover;
+          }
+
+          &:nth-child(2){
+            background: url("https://images.unsplash.com/photo-1517902610345-76683f9f3a1f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80");
+            background-position: center;
+            background-size: cover;
+          }
+        }
+      }
+    }
+  }
+}

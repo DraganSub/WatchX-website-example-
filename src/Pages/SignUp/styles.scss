@@ -1,0 +1,27 @@
+@import "../../Common/variables.scss";
+
+.signUp-page{
+    background-color:$background-base-color;
+    min-height: $screen-view;
+    h1{
+        color: $text-color;
+        letter-spacing: 2px;
+        max-width: 80%;
+        margin: auto;
+        padding: 1em 0em 0.5em 0em;
+        font-size: 2em;
+    }
+    .sign-wrap{
+        max-width: 80%;
+        margin: 10% auto;
+        
+    
+    }
+
+} 
+
+.btn-position-mid{
+    max-width: 50%;
+    margin: auto;
+    text-align: center;
+}

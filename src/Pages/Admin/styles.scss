@@ -1,0 +1,160 @@
+
+@import "../../Common/variables.scss";
+
+.admin-page{
+  max-width: 100%;
+  min-height: $screen-view;
+  background-color: $background-base-color;
+  .admin-container{
+    max-width: 90%;
+    min-height: $screen-view;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    @media (max-width:$mobile) {
+      grid-template-columns: unset;
+      grid-template-rows: repeat(2,auto);
+    }
+    .box:nth-child(1){
+      min-width: 100%;
+      margin: 3em auto;
+      h1{
+        padding: 1em;
+        color: $text-color;
+        font-size: 2em;
+        letter-spacing: 2px;
+        font-family: $font-family-playfair;
+      }
+      @media (max-width:$mobile) {
+        margin: auto;
+      }
+      table{
+        min-width: 100%;
+        overflow-x: auto;
+        border-collapse: collapse; 
+        @media (max-width:$mobile) {
+          display: block;
+        }
+        thead{
+          @media (max-width:$mobile) {
+            display: block;
+          }
+          tr{
+            @media (max-width:$mobile) {
+              display: block;
+              position: absolute;
+              top: -9999px;
+              left: -9999px;
+              border: 1px solid $border-color;
+            }
+            th{
+              text-align: left;
+              border: 1px solid $border-color;
+              color: $text-color;
+              letter-spacing: 2px;
+              padding: 0.3em;
+              @media (max-width:$mobile) {
+                display: block;
+              }
+            }
+          }
+        }
+        tbody{
+          @media (max-width:$mobile) {
+            display: block;
+          }
+          tr{
+            @media (max-width:$mobile) {
+              display: block;
+              border: 1px solid $border-color;
+            }
+            td{
+              border: 1px solid $border-color;
+              padding: 0.3em;
+              color:$border-color ;
+              .btn{
+                width: 100%;
+              }
+              @media (max-width:$mobile) {
+                display: block;
+                border: none;
+                border-bottom: 1px solid $border-color; 
+                position: relative;
+                padding-left: 50%; 
+                &::before{
+                  position: absolute;
+                  top: 6px;
+                  left: 6px;
+                  width: 45%; 
+                  padding-right: 10px; 
+                  white-space: nowrap;
+                }
+                &:nth-of-type(1):before{content:"Username";color:$text-color;}
+                &:nth-of-type(2):before{content:"User Email";color:$text-color;}
+                &:nth-of-type(3):before{content:"Remove User";color:$text-color;}
+              }
+            }
+          }
+        }
+      }
+    }
+
+
+    .box:nth-child(2){
+      h1{
+        padding: 1em;
+        color: $text-color;
+        font-size: 2em;
+        letter-spacing: 2px;
+        font-family: $font-family-playfair;
+      }
+      .wrap{
+        max-width: 80%;
+        margin: auto auto;
+        display: grid;
+        grid-template-columns: repeat(2,50%);
+        @media (max-width: 550px) {
+          grid-template-columns: auto;
+        }
+        .card{
+          width: 80%;
+          margin: auto;
+          border-radius: 10px;
+          background: whitesmoke;
+          .image{
+            max-width: 100%;
+            margin: auto;
+            img{
+              max-width: 100%;
+              width: 100%;
+              margin: auto;
+            }
+          }
+
+          .price,.name{
+            max-width: 90%;
+            margin: auto;
+            text-align: center;
+            padding: 4px;
+          }
+          .buttons{
+            max-width: 80%;
+            margin: 10px auto;
+              .btn{
+                padding: 0px;
+                width: 100%;
+                border: 1px solid $border-color;
+                color: black;
+              }     
+          }
+         margin: 10px auto;
+        }
+      }
+    }
+
+    
+    .pagination{
+      padding: 20px 0px;
+    }
+  }
+}

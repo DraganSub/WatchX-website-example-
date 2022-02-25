@@ -1,0 +1,10 @@
+export const ADD_PRODUCT = "/addProduct";
+export const CART = "/cart"; 
+export const SIGN_IN = "/signIn";
+export const SIGN_UP = "/signUp";
+export const ADMIN = "/admin";
+export const EDIT_PRODUCT = "/editProduct/:key";
+export const PRODUCTS = "/products";
+export const PRODUCT_DETAILS_PAGE = "/product/:key";
+export const HOMEPAGE = "/";
+export const ABOUT_US = "/aboutUs";

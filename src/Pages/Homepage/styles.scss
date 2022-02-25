@@ -1,0 +1,460 @@
+@import "../../Common/variables.scss";
+
+
+.section-hero{
+    min-height: $screen-view;
+    height: 100%;
+    background-image:url("../../Common/img/section-hero-watch-background.jpg");
+    background-position:bottom;
+    background-attachment:scroll;
+    background-size:cover;
+    z-index: 1;
+    
+    @media (max-width: 1300px) {
+        background-position-x:-20rem;
+    }
+    @media(max-width: 1200px){
+        background-position: center;
+        height: 100%;
+
+        &::before{
+            content: "";
+            opacity: 0.2;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgb(44, 41, 41);
+        }
+    }
+    background-position-x:-25rem;
+    background-color: #020202;
+    background-repeat: no-repeat;
+    position: relative;
+
+    
+    .section-hero-container{
+        position:absolute;
+        background-color: $background-dark-color;
+        top: 40%;
+        right: 0;
+        height: $screen-view;
+        width: 40%;
+        background-color: transparent;
+        
+        @media(max-width: 1200px){
+            width: 100%;
+            height:auto;
+            padding: 1em;
+            background: rgb(16,16,16);
+            background: linear-gradient(97deg, rgba(16,16,16,1) 0%, rgba(14,14,14,1) 29%, rgba(8,8,5,1) 60%, rgba(4,4,4,1) 74%,  rgba(2,2,2,1) 84% );
+        }
+
+       
+        .section-container-wrap{
+            position:absolute;
+            width: 100%;
+            background-color:transparent;
+
+            @media(max-width:1200px){
+                position: relative;
+                max-width: 80%;
+                text-align: center;
+                margin: auto;
+            }
+               
+            .section-title{
+                color: $text-color;
+                font-size: 5rem;
+                font-weight: 400;
+                font-family: $font-family-playfair;
+                @media(max-width: 1200px){
+                    display: none;
+                }
+            } 
+
+            .section-description{
+                font-size: 2rem;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                color: $text-color;
+                @media(max-width: 1200px){
+                    margin-bottom: 5%;
+                }
+            }
+
+            .section-products-button{        
+                padding: 1em 0px;
+                position: absolute;
+                @media (max-width:1200px) {
+                    padding: 0em 0em;
+                    position: relative;
+                }
+            }
+        }
+    }
+}
+
+
+.section-brands{
+    position: relative;
+    background-color: #1e1d1b;
+    min-width: 100%;
+    @media (max-width:$mobile) {
+        display: none;
+    }
+    .brand-bar{
+        display:grid;
+        grid-template-columns: repeat(5,auto);
+        align-items: center;   
+        text-align: center;   
+        border-bottom: 2px #535252 solid ;
+        border-top: 2px #535252 solid ;
+        .brand-item{
+            float: left;
+            list-style-type: none;
+            margin: 20px auto;
+            .brand-item-img{
+                width: 100px;
+                height: auto;
+            }
+        }
+    }
+}
+
+.section-ourMission{
+    position: relative;
+    background-image: url("../../Common/img/ourMission-section.jpg");
+    height:60vh;
+    background-size: cover;
+    background-position-y:0rem;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    &::before{
+        content: "";
+        opacity: 0.3;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: grey;
+    }
+
+    .ourMission-container{
+        position: absolute;
+        top: 0;
+        left: 0%;
+        width: 50%;
+        margin: auto;
+        height: 50vh;
+        @media(max-width: $mobile){
+            position: inherit;
+            top:0;
+            height: 80vh;
+            width: 100%;
+        }
+        .ourMission-wrap{
+            position: absolute;
+            top: 20%;
+            left: 10%;
+            width: 60%;
+            color: $text-color;
+            @media(max-width: $mobile){
+                top: 20%;
+                left: 10%;
+                width: 70%;
+            }
+            h1{
+                margin: 5% 0 5% 0;
+                font-size:2.5rem;
+                font-family: $font-family-playfair;
+            }
+            p{
+                margin: 5% 0 5% 0;
+                font-size:1rem;
+            }
+        }
+    }
+}
+
+.chooseGender{
+    position: relative;
+    height: $screen-view;
+    width: 100%;
+    @media(max-width:670px){
+        height: 60vh;
+    }
+    .gender-container{
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        .woman-watch{
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 50%;
+            background-image: url("../../Common/img/woman-watch.jpg");
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            @media(max-width:670px){
+                height: 100%;
+            }
+            span{
+                writing-mode: vertical-rl;
+                text-orientation: upright;
+                -webkit-text-orientation:upright;
+                font-size: 20px;
+                position: absolute;
+                right: 0;
+                margin-right: 2%;
+                margin-top: 2%;
+                @media(max-width:670px){
+                   font-size: 15px;
+                }
+            }
+        }
+
+        .man-watch{
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 50%;
+            background-image: url("../../Common/img/man-watch.jpg");
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            @media(max-width:670px){
+                height: 100%;
+            }
+            span{
+                writing-mode: vertical-rl;
+                text-orientation: upright;
+                -webkit-text-orientation:upright;
+                font-size: 20px;
+                position: absolute;
+                left: 0;
+                top: 0;
+                margin-left: 2%;
+                margin-top: 2%;
+                color: $text-color;
+                @media(max-width:670px){
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+}
+
+
+
+.product-list{
+    background-color: $background-dark-color;
+    padding-bottom: 10%;
+    h1{
+        color: $text-color;
+        font-family: $font-family-playfair;
+        text-align: center;
+        font-size: 3rem;
+        letter-spacing: 4px;
+        padding: 10px;
+        padding-top: 100px;
+        margin-bottom: 4rem;
+    }
+   
+
+    .product-container{
+        display: grid;
+        grid-template-columns: repeat(4,auto);
+        @media(max-width:1000px){
+            display: unset;
+        }
+        .card{
+        border-radius: 5px;
+        padding: 1em;
+        text-align: center;
+        
+            &:hover{
+                border: 0.5px solid white;
+                transition: 1s ease-in-out;
+                .buy-btn{
+                    display: unset;
+                }
+            }
+            .title{
+                font-size: 1em;
+                font-weight: bold;
+                color:$text-color ;   
+            }
+            .image{
+                img{
+                    max-width: clamp(120px,200px,255px);
+                    height: auto;
+                }
+            
+
+            }
+            .price{
+                padding-bottom: 1em;
+                color: $text-color;
+            }
+        }
+    }
+}
+
+.section-newCollection{
+    position: relative;
+    background-image: url("../../Common/img/section-new-collection.jpg");
+    height:60vh;
+    background-size: cover;
+    background-position-y:0rem;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    @media(max-width: $mobile){
+        height: 120vh;
+    }
+    &::before{
+        content: "";
+        opacity: 0.3;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: grey;
+    }
+
+    @media(max-width: $mobile){
+        height: 80vh;
+    }
+    
+    .newCollection-container{
+        position: absolute;
+        top: 0;
+        left: 0%;
+        width: 50%;
+        margin: auto;
+        height: 50vh;
+        @media(max-width: $mobile){
+            position: inherit;
+            top:0;
+            height: 80vh;
+            width: 100%;
+        }
+        .newCollection-wrap{
+            position: absolute;
+            top: 25%;
+            left: 50%;
+            width: 100%;
+            color: $text-color;
+            @media(max-width: $mobile){
+                top: 20%;
+                left: 10%;
+                width: 70%;
+            }
+            h1{
+                margin: 5% 0 5% 0;
+                font-size:2.5rem;
+                font-family: $font-family-playfair;
+            }
+            p{
+                margin: 5% 0 5% 0;
+                font-size:1rem;
+            }
+        }
+    }
+}
+
+.socialNet{
+    background-color:$background-dark-color ;
+    .socialNet-container{
+        display: grid;
+        grid-template-columns:repeat(3,auto);
+        justify-content: center;
+        grid-column-gap: 5px;
+        @media (max-width:1050px) {
+           display: block;
+        }
+        .card{
+            border-radius: 10px;
+            text-align: center;
+            .social-title{
+                width:400px;
+                padding: 20% 0% 20% 0;
+                font-size: 1.7em;
+                text-align: left;
+                font-weight: bold;
+                color: $text-color;
+                font-family: $font-family-playfair;
+                @media (max-width:1050px) {
+                    text-align: center;
+                    padding: 10% 0 10% 0;
+                    width: 100%;
+                    font-size: 2.5em;
+                }
+            }
+            .img1-example{
+                padding-bottom: 30%;
+                padding-top: 50%;
+                @media (max-width:1050px) {
+                    padding: 0;
+                }
+                img{
+                    width: 200px;
+                    height: 200px;
+                    @media(min-width:900px){ 
+                        width: 300px;
+                        height: 300px;
+                    }
+                    @media (max-width:1050px) {
+                        padding-top: 20px;
+                        width: 400px;
+                        height: 400px;
+                    }
+                    @media (max-width:500px) {
+                        padding-top: 20px;
+                        width: 240px;
+                        height: 240px;
+                    }
+                }
+            }
+            .social-quote{
+                padding-bottom: 5%;
+                width: 400px;
+                max-width: 100%;
+                margin: auto;
+                color: $text-color;
+                text-align: left;
+                @media (max-width:$mobile) {
+                    max-width: 75%;
+                    margin: auto;
+                    text-align: center;
+                } 
+            }
+            .instagram-btn-div{
+                border: none;
+                padding: 1em 0em;
+                font-weight: bold;
+                color: $text-color;
+                background-color: transparent;
+                text-align: left;
+                @media (max-width:1050px) {
+                    max-width: 50%;
+                    margin: auto;
+                    text-align: center;
+                }
+                @media (max-width:$mobile) {
+                    max-width: 50%;
+                    margin: auto;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
