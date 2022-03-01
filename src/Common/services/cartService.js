@@ -31,28 +31,17 @@ class CartService {
     return result;
   };
 
-  getCartItemsNumber(uid, callback) {
-    this.firebaseService.db
-      .ref(`cart/${uid}`)
-      .orderByChild("quantity")
-      .on("value", (snap) => {
-        let result = [];
-        snap.forEach((item) => {
-          result.push(item.val().quantity);
-        });
-        callback(result);
-      });
-  }
-
   incrementCart = async (uid, prodId) => {
+    let res = [];
     const data = await this.firebaseService.db
       .ref(`cart/${uid}`)
       .orderByChild("productId")
       .equalTo(prodId)
       .once("value");
 
-    data.forEach((snap) => {
+    data.forEach(async (snap) => {
       let value = snap.val();
+
       if (value) {
         this.firebaseService.cartItem(uid, prodId).update({
           ...this.getProductById(prodId),
@@ -66,9 +55,20 @@ class CartService {
         });
       }
     });
+    let dataItem = await this.firebaseService.db.ref(`cart/${uid}`);
+    dataItem.once("value", (snapshot) => {
+      snapshot.forEach((item) => {
+        //   console.log(item.val());
+        res.push({ ...item.val() });
+      });
+    });
+
+    return res;
   };
 
   decrementCart = async (uid, prodId) => {
+    let res = [];
+
     const data = await this.firebaseService.db
       .ref(`cart/${uid}`)
       .orderByChild("productId")
@@ -92,6 +92,14 @@ class CartService {
         });
       }
     });
+    let dataItem = await this.firebaseService.db.ref(`cart/${uid}`);
+    dataItem.once("value", (snapshot) => {
+      snapshot.forEach((item) => {
+        //   console.log(item.val());
+        res.push({ ...item.val() });
+      });
+    });
+    return res;
   };
 
   getCartItemsPrice = async (uid) => {
@@ -105,6 +113,7 @@ class CartService {
         result.push(item.val().productPrice * item.val().quantity);
       });
     });
+
     return result;
   };
 
@@ -126,3 +135,4 @@ class CartService {
 }
 
 export default CartService;
+
