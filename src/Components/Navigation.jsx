@@ -8,7 +8,7 @@ import * as ROUTES from "../Common/constants/routes";
 
 class Navigation extends React.Component {
   render() {
-    const { authUser, admin, cartSum } = this.props;
+    const { authUser, admin } = this.props;
     const condition = ({ isActive }) => (isActive ? "active-link " : "item");
 
     return (
@@ -59,7 +59,7 @@ class Navigation extends React.Component {
                 <li>
                   <span>
                     <NavLink className={condition} to={ROUTES.CART}>
-                      Cart ( {cartSum} )
+                      Cart
                     </NavLink>
                   </span>
                 </li>
