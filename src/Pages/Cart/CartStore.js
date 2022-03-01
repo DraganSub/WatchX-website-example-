@@ -15,14 +15,12 @@ class CartStore {
     makeObservable(this, {
       cart: observable,
       totalPrice: observable,
-      cartQuantityItems: observable,
       token: observable,
       status: observable,
       redirect: observable,
 
       getPriceTotal: action,
       getCart: action,
-      getItems: action,
       removeItemFromCart: action,
       incrementCart: action,
       handleToken: action,
@@ -31,11 +29,10 @@ class CartStore {
 
       currentCart: computed,
       cartPriceSum: computed,
-      cartItemsSum: computed,
     });
+    const { uid } = JSON.parse(localStorage.getItem("authUser")) || "";
     this.productStore = new ProductStore();
     this.cartService = new CartService();
-    const { uid } = JSON.parse(localStorage.getItem("authUser")) || "";
     toast.configure();
     this.getCart(uid);
   }
@@ -45,7 +42,6 @@ class CartStore {
   status = false;
   redirect = false;
   cart = [];
-  cartQuantityItems = [];
   totalPrice = [];
 
   toArray = (obj) => {
@@ -88,15 +84,24 @@ class CartStore {
   };
 
   incrementCart = async (uid, productId) => {
-    await this.cartService.incrementCart(uid, productId);
+    const data = await this.cartService.incrementCart(uid, productId);
+
+    runInAction(() => {
+      this.setCart(data);
+    });
+    this.getPriceTotal();
   };
 
   decrementCart = async (uid, productId) => {
-    await this.cartService.decrementCart(uid, productId);
+    const data = await this.cartService.decrementCart(uid, productId);
+
+    runInAction(() => {
+      this.setCart(data);
+    });
+    this.getPriceTotal();
   };
 
   getCart = async (uid) => {
-    this.getItems();
     this.getPriceTotal();
     const data = await this.cartService.getCart(uid);
     runInAction(() => {
@@ -116,31 +121,17 @@ class CartStore {
     });
   };
 
-  getItems() {
-    const { uid } = JSON.parse(localStorage.getItem("authUser")) || "";
-    this.cartService.getCartItemsNumber(uid, (data) =>
-      runInAction(() => {
-        this.cartQuantityItems = data;
-      })
-    );
-  }
-
-  removeItemFromCart = (uid, productId) => {
-    this.cartService.removeItemFromCart(uid, productId);
+  removeItemFromCart = async (uid, productId) => {
+    await this.cartService.removeItemFromCart(uid, productId);
+    const data = await this.cartService.getCart(uid);
+    runInAction(() => {
+      this.setCart(data);
+    });
   };
 
   //cart computed
   get currentCart() {
     return this.cart.slice();
-  }
-
-  get cartItemsSum() {
-    const arr = this.cartQuantityItems;
-    let sum = 0;
-    for (let i = 0; i < arr.length; i++) {
-      sum += arr[i];
-    }
-    return sum;
   }
 
   get cartPriceSum() {
@@ -154,3 +145,4 @@ class CartStore {
 }
 
 export default CartStore;
+
