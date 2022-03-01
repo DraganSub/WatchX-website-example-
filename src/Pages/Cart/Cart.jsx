@@ -111,3 +111,4 @@ class Cart extends React.Component {
 export default inject((rootStore) => ({
   cartStore: new CartStore(rootStore),
 }))(observer(Cart));
+
