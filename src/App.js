@@ -20,16 +20,10 @@ class App extends React.Component {
     const { authUser } = this.props.appStore.sessionStore;
     const { isAdmin } = this.props.appStore.sessionStore.authUser || {};
     const { doSignOut } = this.props.appStore.firebaseService;
-    const cartSum = this.props.appStore.cartStore.cartItemsSum;
 
     return (
       <div>
-        <MainLayout
-          cartSum={cartSum}
-          authUser={authUser}
-          admin={isAdmin}
-          signOut={doSignOut}
-        >
+        <MainLayout authUser={authUser} admin={isAdmin} signOut={doSignOut}>
           <Routes>
             <Route
               path={ROUTES.ADD_PRODUCT}
