@@ -43,7 +43,7 @@ class SignInPage extends React.Component{
               <div className="or">
                 or 
               </div>
-              <Button type="submit" disabled={isInvalid}>
+              <Button type="submit">
                 Sign In with Google
               </Button>
             </div>
